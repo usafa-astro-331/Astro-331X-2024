@@ -108,13 +108,63 @@ includes connecting array output to a ohmmeter—don’t  do this unless you’r
 
 complete pre-lab
 
+record incident light with luxmeter
+
 you just measured open-circuit voltage and short-circuit current
 
 measurements lab
 
+(write a report)
+
 # day 2—electrical
 
+most spacecraft need an electrical system
 
+exceptions: project westford, echo 1/2, gemini upper stage target
+
+list: all the things need electricity, and your payload does too
+
+what are possible ways to generate electricity? 
+
+- mechanical
+  - wind/air pressure
+  - tidal
+  - hydro
+  - gravity
+  - spring
+- nuclear (thermal)
+  - reactor
+  - RTG
+  - (can use heat from other sources too)
+- chemical
+  - oxidation/reduction reactions
+- EM
+  - photovoltaic effect
+    - related to photoelectric effect described by Einstein
+
+most of these could work in space
+
+However, we usually design spacecraft to last for months (small) to years (large), so we need a power source that lasts that long too
+
+solar or radioactive
+
+Earth-orbiting: solar
+
+IV curve
+
+max power
+
+draw predicted IV curve from yesterday’s measurements
+
+what is max power?
+
+
+
+falconsat power budget?
+
+eclipse diagram/math
+
+flatsat power budget
 
 # day 3—cameras
 
@@ -135,57 +185,3 @@ attitude control
 
 
 
-
-# Welcome to Astro 331
-
-## 2023 Spring
-
-Welcome to Astro 331: Space Systems Engineering. This practical hands-on course will explore spacecraft systems in more depth than you saw in Astro 310: Intro to Astro. If you are an Astro major, many topics from this course will be useful as you go on to work on FalconSAT in Capstone. 
-
-This course uses Arduino-based labs to develop your engineering skills. Arduino is a ubiquitous open source electronic prototyping ecosystem built around a series of microcontrollers. 
-
-In this class we will use Arduinos to build a satellite analog called FlatSAT to explore spacecraft design lessons. FlatSAT is a mini version of the FalconSAT Avionics Test Bed (ATB). 
-
-## Lab overview
-
-Each lab group of 2-3 students will build a FlatSAT using solderless breadboards. Arduino microcontrollers will run FlatSAT. You will communicate with FlatSAT using the Arduino IDE on the lab computers.  
-
-Each lab will explore a new concept, and will add new components to FlatSAT.
-
-1. electrical power
-
-2. camera payload
-
-3. communications
-
-4. attitude system
-
-5. integration and test
-
-A prelab report will be due at the beginning of class for each lab day, as noted in the syllabus. 
-
-In addition to these numbered labs, we will have a few introductory lab exercises. Some of these exercises will only take part of our class time. 
-
-### Lab conduct
-
-In general you will follow the explicit directions for each lab. Please notify your instructor if any instructions are difficult to follow or accomplish. 
-
-During all labs you should take photographs of your completed FlatSAT, your team in action, and test setup as necessary. You should use some of these photographs in your final lab report--definitely include a photograph of your completed FlatSAT after all labs are completed. 
-
-## Computer environment
-
-We will use the Arduino integrated development environment (IDE) to communicate with FlatSAT. We will also use several otehr tools to organize code and other course materials. 
-
-- git: software distribution and version control
-  
-  - tortoisegit: windows explorer integration for git
-
-- typedown: markdown viewer/editor (for lab instructions)
-
-- arduino-cli: manage arduino libraries
-
-## Getting started
-
-Before the first lab, open the `computer environment` folder and follow the instructions in `README.md`. 
-
-Instructions and code for each lab are located in the lab's numbered folder. 
