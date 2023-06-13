@@ -37,9 +37,12 @@ struct electrical_measurement
 };
 
 // prototype function for INA219 reading
-electrical_measurement INA219reading(Adafruit_INA219 ina219) ;
+electrical_measurement INA219reading() ;
 
+// prototype function for ACS723 reading
 electrical_measurement ACS723reading(); 
+
+
 
   int interval = 500; // writes measurements every XX ms
   int present = millis(); 
@@ -55,21 +58,20 @@ electrical_measurement ACS723reading();
 
 
 void loop() {
-  
   electrical_measurement ina219data; 
-  ina219data = INA219reading(ina219); 
-
+  ina219data = INA219reading(); 
+  
   electrical_measurement acs723data; 
   acs723data = ACS723reading(); 
-  
-  ina219curr_samples[averaging_index] = ina219data.current_mA; 
-  ina219volt_samples[averaging_index] = ina219data.voltage_V; 
 
+  // ina219curr_samples[averaging_index] = ina219data.current_mA; 
+  // ina219volt_samples[averaging_index] = ina219data.voltage_V; 
+  
   acs723curr_samples[averaging_index] = acs723data.current_mA; 
   acs723volt_samples[averaging_index++] = acs723data.voltage_V; 
-
-  if (averaging_index >= num_samples){
+if (averaging_index >= num_samples){
     averaging_index = 0; 
+    
   }
 
 
@@ -77,7 +79,7 @@ void loop() {
   if (present >= due){
     String write_line = "";
     write_line += present; 
-    
+    /*
     // INA219
     float current = 0; 
     float voltage = 0; 
@@ -92,13 +94,16 @@ void loop() {
     write_line += ", ";
     // write_line += voltage; 
     write_line += ina219volt_samples[9]; 
+*/
 
      // ACS723
-    current = 0; 
-    voltage = 0; 
+    float current = 0; 
+    float voltage = 0; 
     for (int ii = 0; ii < num_samples; ii++){ // sum last X current samples
       current += acs723curr_samples[ii];
       voltage += acs723volt_samples[ii];
+      delay(10); 
+
     } // end ACS723 current sample sum
     current = current / float(num_samples); 
     voltage = voltage / float(num_samples);
@@ -106,19 +111,24 @@ void loop() {
     write_line += current; 
     write_line += ", ";
     write_line += voltage; 
+    
 
-    Serial.print(write_line); 
+    Serial.println(write_line); 
 
+Serial.println(due); 
     due += interval; 
+    Serial.println(due);
   }
   
+  delay(100); 
+  // Serial.println(present); 
 } // end function loop()
 
 
 // Adafruit_INA219 ina219 ;
 
-electrical_measurement INA219reading(Adafruit_INA219 ina219){
-  electrical_measurement data; //creates empty object 'data' of type electrical_measurement
+electrical_measurement INA219reading(){
+  // electrical_measurement data; //creates empty object 'data' of type electrical_measurement
 
   // float shuntvoltage;
   // float busvoltage ;
@@ -130,7 +140,7 @@ electrical_measurement INA219reading(Adafruit_INA219 ina219){
   // data.voltage_V = busvoltage + (shuntvoltage / 1000);
   // data.current_mA = ina219.getCurrent_mA();
   
-  return data;
+  // return data;
   
 } // end function INA219reading()
 
