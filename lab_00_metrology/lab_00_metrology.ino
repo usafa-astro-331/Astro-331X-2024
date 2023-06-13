@@ -33,7 +33,7 @@ void setup() {
 
 struct electrical_measurement
 {
-  long current_mA, voltage_V, power_mW;  
+  float current_mA, voltage_V, power_mW;  
 };
 
 // prototype function for INA219 reading
@@ -64,8 +64,8 @@ void loop() {
   electrical_measurement acs723data; 
   acs723data = ACS723reading(); 
 
-  // ina219curr_samples[averaging_index] = ina219data.current_mA; 
-  // ina219volt_samples[averaging_index] = ina219data.voltage_V; 
+  ina219curr_samples[averaging_index] = ina219data.current_mA; 
+  ina219volt_samples[averaging_index] = ina219data.voltage_V; 
   
   acs723curr_samples[averaging_index] = acs723data.current_mA; 
   acs723volt_samples[averaging_index++] = acs723data.voltage_V; 
@@ -79,7 +79,7 @@ if (averaging_index >= num_samples){
   if (present >= due){
     String write_line = "";
     write_line += present; 
-    /*
+    
     // INA219
     float current = 0; 
     float voltage = 0; 
@@ -87,22 +87,21 @@ if (averaging_index >= num_samples){
       current += ina219curr_samples[ii];
       voltage += ina219volt_samples[ii];
     } // end INA219 current sample sum
+    
     current = current / float(num_samples); 
     voltage = voltage / float(num_samples);
     write_line += ", ";
     write_line += current; 
     write_line += ", ";
-    // write_line += voltage; 
-    write_line += ina219volt_samples[9]; 
-*/
+    write_line += voltage; 
+
 
      // ACS723
-    float current = 0; 
-    float voltage = 0; 
+     current = 0; 
+     voltage = 0; 
     for (int ii = 0; ii < num_samples; ii++){ // sum last X current samples
       current += acs723curr_samples[ii];
       voltage += acs723volt_samples[ii];
-      delay(10); 
 
     } // end ACS723 current sample sum
     current = current / float(num_samples); 
@@ -114,33 +113,29 @@ if (averaging_index >= num_samples){
     
 
     Serial.println(write_line); 
-
-Serial.println(due); 
     due += interval; 
-    Serial.println(due);
   }
   
   delay(100); 
-  // Serial.println(present); 
 } // end function loop()
 
 
 // Adafruit_INA219 ina219 ;
 
 electrical_measurement INA219reading(){
-  // electrical_measurement data; //creates empty object 'data' of type electrical_measurement
+  electrical_measurement data; //creates empty object 'data' of type electrical_measurement
 
-  // float shuntvoltage;
-  // float busvoltage ;
-  // float solar_panel_voltage ;
+  float shuntvoltage;
+  float busvoltage ;
+  float solar_panel_voltage ;
 
-  // shuntvoltage = ina219.getShuntVoltage_mV();
-  // busvoltage = ina219.getBusVoltage_V();
-  // //power_mW = ina219.getPower_mW();
-  // data.voltage_V = busvoltage + (shuntvoltage / 1000);
-  // data.current_mA = ina219.getCurrent_mA();
+  shuntvoltage = ina219.getShuntVoltage_mV();
+  busvoltage = ina219.getBusVoltage_V();
+  //power_mW = ina219.getPower_mW();
+  data.voltage_V = busvoltage + (shuntvoltage / 1000);
+  data.current_mA = ina219.getCurrent_mA();
   
-  // return data;
+  return data;
   
 } // end function INA219reading()
 
@@ -157,9 +152,9 @@ electrical_measurement ACS723reading(){
   // need to adjust curr_sensitivity to account for sensor gain
   int curr_counts; 
   curr_counts = analogRead(curr_in); 
-  float curr_sensitivity = 1; 
+  float curr_sensitivity = 1.; 
   float Vref = 0; 
-  data.current_mA = (curr_counts*volt_sensitivity-Vref)*curr_sensitivity; 
+  data.current_mA = (volt_sensitivity*curr_counts -Vref)*curr_sensitivity; 
 
   return data; 
 }
