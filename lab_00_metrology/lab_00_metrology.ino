@@ -1,5 +1,11 @@
-#include <Adafruit_INA219.h>
+#include <LiquidCrystal.h>
+// initialize the library by associating any needed LCD interface pin
+// with the arduino pin number it is connected to
+const int rs = 5, en = 4, d4 = 0, d5 = 1, d6 = 2, d7 = 3;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
+
+#include <Adafruit_INA219.h>
 Adafruit_INA219 ina219;
 
 // pin assignments for voltage and current with ACS723 
@@ -15,6 +21,8 @@ const float r1r = 0.0909  // r1r = (r1)/(r1+r2)
   ;const float V_per_count = 0.8e-3; // mV/count
 
 void setup() {
+  lcd.begin(16,2); // size of parallel lcd is 16x2 characters
+    
   Serial.begin(9600);
   while(!Serial);
   Serial.println("test");
@@ -101,8 +109,17 @@ if (averaging_index >= num_samples){
     write_line += ", ";
     write_line += current; 
     write_line += ", ";
-    write_line += voltage; 
-
+    write_line += voltage;
+    
+    lcd.setCursor(0,0);
+    lcd.print(current,1); 
+    lcd.setCursor(5,0);
+    lcd.print("mA");
+    lcd.setCursor(0,1);
+    lcd.print(voltage); 
+    lcd.setCursor(6,1);
+    lcd.print("V");
+    
 
      // ACS723
      current = 0; 
@@ -118,10 +135,22 @@ if (averaging_index >= num_samples){
     write_line += current; 
     write_line += ", ";
     write_line += voltage; 
+
+    lcd.setCursor(8,0);
+    lcd.print(current,1); 
+    lcd.setCursor(13,0);
+    lcd.print("mA");
+    lcd.setCursor(8,1);
+    lcd.print(voltage); 
+    lcd.setCursor(14,1);
+    lcd.print("V");
     
 
     Serial.println(write_line); 
     due += interval; 
+    
+    // lcd.setCursor(0, 0);
+    // lcd.print(write_line); 
   }
   
   delay(100); 
