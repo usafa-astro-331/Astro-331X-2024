@@ -6,6 +6,14 @@ Adafruit_INA219 ina219;
 const int volt_in = A3; 
 const int curr_in = A4; 
 
+
+// values used to measure voltage with ADC pin
+const float r1r = 0.0909  // r1r = (r1)/(r1+r2)
+// const float Vmax = 3.3 // max reference voltage of ADC pin (Vcc)
+
+// The on-board ADC will be set to 12-bits -> 2^12 = 4096 -> 3300 mV / 4096 counts 0.8 mV/count
+  ;const float V_per_count = 0.8e-3; // mV/count
+
 void setup() {
   Serial.begin(9600);
   while(!Serial);
@@ -18,7 +26,7 @@ void setup() {
     while (1) { delay(10); }
   }
   // To use a slightly lower 32V, 1A range (higher precision on amps):
-  // ina219.setCalibration_32V_1A();
+  ina219.setCalibration_32V_1A();
   // Or to use a lower 16V, 400mA range (higher precision on volts and amps):
   //ina219.setCalibration_16V_400mA();
 
@@ -146,15 +154,15 @@ electrical_measurement ACS723reading(){
   // The on-board ADC is 12-bits -> 2^12 = 4096 -> 3300 mV / 4096 counts 0.8 mV/count
   int volt_counts; 
   volt_counts = analogRead(volt_in);
-  float volt_sensitivity = 0.8; 
-  data.voltage_V = volt_counts * volt_sensitivity; 
+  // float volt_sensitivity = 0.8; 
+  data.voltage_V = volt_counts * V_per_count / r1r; 
 
   // need to adjust curr_sensitivity to account for sensor gain
   int curr_counts; 
   curr_counts = analogRead(curr_in); 
   float curr_sensitivity = 1.; 
   float Vref = 0; 
-  data.current_mA = (volt_sensitivity*curr_counts -Vref)*curr_sensitivity; 
+  data.current_mA = (V_per_count*curr_counts -Vref)*curr_sensitivity; 
 
   return data; 
 }
