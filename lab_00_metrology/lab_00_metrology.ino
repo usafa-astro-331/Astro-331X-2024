@@ -149,11 +149,8 @@ if (averaging_index >= num_samples){
     Serial.println(write_line); 
     due += interval; 
     
-    // lcd.setCursor(0, 0);
-    // lcd.print(write_line); 
   }
   
-  delay(100); 
 } // end function loop()
 
 
