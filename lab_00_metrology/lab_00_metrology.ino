@@ -1,7 +1,7 @@
 #include <LiquidCrystal.h>
 // initialize the library by associating any needed LCD interface pin
 // with the arduino pin number it is connected to
-const int rs = 5, en = 4, d4 = 0, d5 = 1, d6 = 2, d7 = 3;
+const int rs = 7, en = 6, d4 = 0, d5 = 1, d6 = 2, d7 = 3;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 
@@ -18,7 +18,7 @@ const float r1r = 0.0909  // r1r = (r1)/(r1+r2)
 // const float Vmax = 3.3 // max reference voltage of ADC pin (Vcc)
 
 // The on-board ADC will be set to 12-bits -> 2^12 = 4096 -> 3300 mV / 4096 counts 0.8 mV/count
-  ;const float V_per_count = 0.8e-3; // mV/count
+  const float V_per_count = 0.8e-3; // mV/count
 
 void setup() {
   lcd.begin(16,2); // size of parallel lcd is 16x2 characters
@@ -41,8 +41,8 @@ void setup() {
 
   analogReadResolution(12); 
 
-  Serial.println("           INA219:              ACS723:");
-  Serial.println("time (ms), curr (mA), volt (V), curr (?), volt (?)");
+  Serial.println("           INA219:              ACS723:     volt div:");
+  Serial.println("time (ms), curr (mA), volt (V), curr (cnt), volt ()");
 
 } // end function setup()
 
