@@ -166,17 +166,129 @@ eclipse diagram/math
 
 flatsat power budget
 
+
+
+chemical batteries
+
+primary/secondary
+
+li-ion vs other chemistries
+
+other chemistries were more promising for space use
+
+li-ion got just good enough for everyday uses
+
+trillions of dollars in r&d
+
+billions of 18650 cells
+
+
+
+alkaline batteries are primary (non-rechargeable)
+
+sputnik, falcongold
+
+
+
+does solar array produce enough power?
+
+does battery store enough power?
+
+
+
+measure IV curve
+
+plot it
+
+compare to prediction
+
+(write a report)
+
 # day 3—cameras
+
+lots of payload types
+
+- space weather
+- radio
+- lots of them involve cameras
+- EM spectrum
+
+visible light: reflected solar radiation
+
+thermal IR: emitted radiation
+
+SAR: reflection of transmitted radiation
+
+
+
+we’ll discuss visible light cameras
+
+
+
+resolution
+
+optical, sensor
+
+eye chart
+
+
+
+different types of resolution
+
+
+
+predict arducam performance
+
+
+
+lab
+
+
+
+write report
 
 
 
 # day 4—radios
 
-radios
+frequency chart
+
+FCC
+
+talk to spacecraft
+
+modulation
+
+isotropic antenna
+
+gain 
+
+SNR
+
+RSSI
 
 # day 5—attitude
 
-attitude control
+attitude control is important
+
+- point your antennas in the right direction
+- point your cameras in the right direction
+- point your rocket in the right direction
+
+attitude sensors
+
+- internal
+- external
+
+attitude actuators
+
+- internal
+- external
+
+most common: reaction wheels and magnetorquers
+
+
+
 
 
 
