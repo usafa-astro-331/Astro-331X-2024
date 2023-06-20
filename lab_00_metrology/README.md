@@ -31,22 +31,36 @@ To measure the current and voltage provided by FlatSAT’s solar array, you must
 
 ## Hardware 
 
-- Arduino MKR Zero
-- multimeter
-- benchtop power supply
-- resistors
-- potentiometer
-- LCD
-- current sensing IC breakout boards
-  - INA219 shunt resistor (black)
-  - ACS723 Hall effect (red)
+- FlatSAT
+  - Arduino MKR Zero
+  - breadboard
+  - LCD (16x2 character display)
+  - current sensing IC breakout boards
+    - INA219 shunt resistor (black)
+    - ACS723 Hall effect (red)
 
+  - resistors
+  - potentiometer
+
+- wires
+
+## Equipment
+
+- benchtop power supply
+- ESD-safe grounding straps
+- laptop
+- Micro USB cable
+- multimeter
+- halogen lamp
 - wires
 
 ## Software 
 
 - Arduino IDE
 - `lab_00_metrology.ino`
+- Arduino libraries (install by running `install_libraries.bat`)
+  - LiquidCrystal
+  - Adafruit INA219
 
 
 
@@ -55,12 +69,14 @@ To measure the current and voltage provided by FlatSAT’s solar array, you must
 - Arduino MKR datasheet
 - Sparkfun Hall sensor datasheet
 
+- INA 219 datasheet
+
 
 
 ## Preliminary
 
 - git sync -> pull
-- inspect and run `lab_00_metrology/install_libraries.bat`
+- inspect and run `install_libraries.bat`
   - inspect by opening with notepad or notepad++
   - run by double clicking the file name
 
@@ -77,6 +93,10 @@ For this lab, use these values as your solar array's max current and voltage.
 | voltage (V)  | 30     | 7.5      |
 
 
+
+## setup
+
+Whenever you handle the Arduino or any microcontroller electronics, be sure that you have a grounding strap on, to prevent unintentional electro-static discharge (ESD). The strap should have contact with your skin and the banana plug end should plug into one of the grounding holes (indicated in red) on the front of your lab bench. There are two grounding plugs at each lab station.
 
 ## Voltage
 
@@ -154,6 +174,17 @@ Select resistors for R1 and R2. Ensure your resistors won't smoke or catch fire.
 
 
 Begin building FlatSAT. 
+
+**Note about power:** Arduino MKR ZERO uses 3.3 V logic and may be damaged if it sees input greater than 3.3 V on any pin (except the 5V in on "Vin" and 5V out on “5V”). However, the LCD display requires 5 V power. Take care to keep the 3.3 V, 5 V, and 25 V power lines separate (all grounds should be connected, including Arduino's ground pin). 
+
+  - Top rail: 5 V (diagram: orange wires)
+    - 5V supply comes from VCC pin of Arduino
+  - Middle rail: 3.3 V (diagram: yellow wires)
+  - Bottom rail: 25 V (solar array---red wires)
+
+While wires are color coded in this diagram, wire color doesn’t matter, except green == ground. 
+
+It is helpful to use short wires to connect to power rails. There will be many wires by the end of the course, so keeping some short will reduce confusion. 
 
 ![voltage divider](../sources/fritzing/331X.svg)
 
@@ -399,3 +430,5 @@ https://www.youtube.com/watch?v=_k9egfWvb7Y
 ## Cleanup
 - disconnect Arduino
 - de-energize and turn off power supply (switch on the back)
+- Remove the ACS723 sensor (red) and associated wires. Connect the INA219’s V- terminal directly to the potentiometer. 
+- remove the voltage divider (resistors)
