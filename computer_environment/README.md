@@ -1,3 +1,5 @@
+# THESE INSTRUCTIONS ARE NOT CURRENT!
+
 # Getting started
 
 You will need to install several programs. This folder contains programs and batch scripts to setup the correct computing environment. These tools are setup for Windows. Equivalent tools exist for Mac or Linux, but you'll have to install your own. 
