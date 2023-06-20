@@ -149,7 +149,7 @@ if (averaging_index >= num_samples){
     Serial.println(write_line); 
     due += interval; 
     
-  }
+  } // end if (present >= due)
   
 } // end function loop()
 
