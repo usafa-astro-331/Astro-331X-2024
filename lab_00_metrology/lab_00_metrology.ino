@@ -14,7 +14,7 @@ const int curr_in = A4;
 
 
 // values used to measure voltage with ADC pin
-const float r1r = 0.0909  // r1r = (r1)/(r1+r2)
+const float r1r = 0.0909;  // r1r = (r1)/(r1+r2)
 // const float Vmax = 3.3 // max reference voltage of ADC pin (Vcc)
 
 // The on-board ADC will be set to 12-bits -> 2^12 = 4096 -> 3300 mV / 4096 counts 0.8 mV/count
