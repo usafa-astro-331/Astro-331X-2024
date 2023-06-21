@@ -1,5 +1,11 @@
 # electrical system
 
+## admin
+
+wear ESD bracelets while handling electronics!
+
+
+
 ### course schedule
 
 1. space, electronics, microcontrollers
@@ -31,153 +37,272 @@
 
 - (maybe) begin camera lab
 
-## space
 
-- what is space? where is space?
-- space is hard/what makes space hard?—xkcd handout (play *I’m Gonna Be*)
-- when should we choose to accomplish something with a spacecraft?
-  - never!/only when it’s the only possible way
-- what is the baseline requirement for a useful spacecraft?
-  - radio
-  - energy generation
-  - energy storage
-  - structure, including launch
-  - orbit control (thrusters, de-orbit)
-  - (digital computer/electronics)
-  - payload
-- exceptions?
-  - no requirements post-deployment
-    - ECHO 1/ECHO 2
-    - Project Westford
-  - analog electronics?
-    - Sputnik
-- themes
-  - commoditization
-    - launch
-    - electronics
 
-## digital electronics/quantization
+## electricity
 
-- spacecraft use digital computers
-- we need to turn analog measurements into digital signals
+voltage, current, power, resistance
 
-### analog to digital conversion (ADC)
+water analogy
 
-- Analog signals must be converted into digital signals on-board the S/C
-- sample rates must be ≥ 2 times max frequency contained in signal (Nyquist criteria) 
+
+
+measurement
+
+- ohmmeter (multimeter in ohm mode)
+  - applies a very small voltage to the circuit and measures current
+- voltmeter (multimeter in volt mode)
+  - “infinite” resistance
+  - “no” current through meter
+- ammeter (multimeter in current mode)
+  - “zero” resistance
+  - flows through meter/transducer
+
+
+
+DC/AC
+
+frequency
+
+
+
+difference: electricity needs a return path
+
+We call that return path ground
+
+
+
+*circuit*: the whole loop 
+
+-  a circuit breaker breaks the circuit and stops the flow of electricity
+- each breaker in a building controls an entire loop
+- Each NM-B cable contains an entire loop—3(!) wires
+
+
+
+Confusion: Ground means something different in U.S. building wiring—this terminology difference is very confusing if you turn a student loose on an electrical project and expect them to learn some electrical basics 
+
+
+
+Electronics: 
+ground = electrical return path 
+always carries full current of the circuit
+ground can be black, white, green, brown, bare—anything but red
+
+
+
+buildings/NEC:
+
+- ground = safety ground
+  - never carries current unless something is broken
+  - ground can be green or bare
+- “neutral” = electrical return path
+  - NEC uses the term “grounded conductor”
+  - neutral is connected to ground somewhere in the building—should be zero voltage between
+  - neutral is always white
+
+![](./sources/nmb.jpg)
+
+Other terms:
+
+- *load* the electrical device connected in a circuit
+  - often specified as a power rating (1200 W microwave, 3 HP motor)
+  - often specified as current draw (50 A car charger)
+- *closed/on* a connected circuit with current flowing through it (typically flowing through a load)
+- *short* a closed circuit connected through essentially no load—usually inadvertent (but today we will measure the solar array’s short-circuit current)
+- *open/broken/off* a circuit with the load removed and V+ disconnected from ground/V-
+
+### Ohm’s law
 
 $$
-f_s \geq 2.2 f_m
+V=IR
 $$
 
-- Use an analog-to-digital converter. In the metrology lab we used Arduino’s built-in ADC to measure voltage from our voltage divider. 
 
-Equations:
-$$
-f_s≥2.2f_m
-$$
 
-$$
-Discrete\ \#=A_{min}+(A_{max}-A_{min} ) \left(\frac{Digital\ \#}{2^n} + \frac{1}{2^{n+1}} \right)
-$$
+- every electrical device has some inherent internal resistance
+
+- If you connect it to its design voltage, it will draw its design current
+- If the circuit (wiring/fuse or breaker) is undersized for this load, something will break
+
 
 $$
-Quantization\ Step=\frac{A_{max}-A_{min}}{2^n}
+P = IV
 $$
 
+
+## safety
+
+- A load is designed for a certain supply voltage, and then its internal characteristics cause it to draw a certain amount of current.
+- connecting to too-high voltage will fry the device
+
+- Wires need to be sized adequately
+- breakers protect wires
+- safety ground (“ground”) protects you
+  - should trip breaker
+  - can still provide enough current to kill
+  - GFCIs detect current leakage and break circuit fast enough to save you
+
+
+
+**Never connect a multimeter to a voltage source!** 
+
+(Despite the fact that I told you to do this yesterday)
+
+- Best case: voltage source has enough internal resistance that nothing bad happens (this is why nothing bad happened yesterday)
+- usual case: breaker trips or fuse blows
+- bad: something else breaks or burns
+
+
+
+## energy
+
+Forms of energy:
+
+- mechanical 
+  - deformation
+  - pressure
+  - gravity
+  - magnetism
+- electromagnetic
+- chemical
+- electrical
+- nuclear
+- thermal
+
+
+
+Why specifically spend time on “electrical system?”
+
+- electricity is an easy way to move energy around
+
+What about storage?
+
+- “batteries” typically store energy as chemical potential energy
+- capacitors can directly store electrical potential, but storage is small and leakage is high
+
+
+
+## typical spacecraft electrical system
+
+- energy generation: photovoltaic solar cells
+
+- energy storage: rechargeable chemical batteries
+
+
+
+
+
+## analysis
+
+key questions:
+
+- will the solar array…
+  - provide enough power to run the spacecraft and charge the battery?
+  - still provide enough power after degrading for the entire mission life
+- will the battery…
+  - store enough energy to operate the spacecraft (through eclipse)?
+  - provide enough power to run the spacecraft (through eclipse)?
+  - last through enough lifetime cycles to still meet those requirements at end of mission life?
+
+
+
+### spacecraft
+
+each orbit, needs enough power to
+
+- run spacecraft during daylight
+- charge batteries
+
+must do that during daylight
+
+
+
+(see presentation)
+
+
 $$
-Error_{max}=\frac{A_Max-A_Min}{2^{n+1}}
+P_{req} = \frac{P_{ecl}T_{ecl}+P_{sun}T_{sun}}{T_{sun}}
 $$
 
-A is any analog signal
 
-- voltage
-- current
-- pressure
-- audio wave (CD audio is 44.1 kHz)
-- brightness
+### solar array
 
-![biker](./sources/biker_quantization.png)
-
-1 bit: 2 levels (B/W)
-
-2 bit: 4 levels
-
-3 bit: 8 levels
+- efficiency
+- degrades every year
 
 
 
-line: $$y=mx+b$$
+equations on `lab 1 analysis.pdf` and Astro equation sheet
 
-- in analog world we can define a point on the line to arbitrary precision
-- in digital world we have to decide how many bits to use to represent a point
-  - 1 bit: on/off
-  - 2 bits: 4 possible values
-  - …
-  - n bits: $2^n$ possible values
-- (nearly) always wrong—but (usually) close enough
-  - this is engineering!
-- limits:
-  - bandwidth
-  - storage
-  - sensor resolution—match sensor range to expected measurement range
-  - Physics of signal—avoid storing more data than the analog signal contains. Example: recording hi-res audio of an 8-track player. 
+Pbol=S $\eta$ A Id cos$\theta$
 
-**Example**
+- *P* power output
+- *S* solar input: 1358 W/m^2 near Earth
+  - more near Mercury, less near Pluto
+  - $\eta$ efficiency: 15-33%
+- *A* cell area
+- $I_d$ inherent degradation from manufacturing defects, wiring, soldering, etc
+- $\theta$ angle between sun and cell
 
-![](./sources/quantization_graph.png)
+Peol = Pbol(1-degradataion)^life
+
+- degradation: 2-5%/year
 
 
 
-|              |                |  **Option #1**  |                |    Option #2    |                |
-| :----------: | :------------: | :-------------: | :------------: | :-------------: | -------------- |
-| Analog Range | Digital  Value | Discrete  Value | Maximum  Error | Discrete  Value | Maximum  Error |
-|    0-4 V     |       00       |      0  V       |      4  V      |      2  V       | 2  V           |
-|    4-8 V     |       01       |     5.3  V      |     2.7  V     |      6  V       | 2  V           |
-|    8-12 V    |       10       |     10.7  V     |     2.7 V      |      10  V      | 2  V           |
-|   12-16 V    |       11       |      16  V      |      4  V      |      14  V      | 2  V           |
+best cells (2022): 
+SolAero IMM (inverted multi-junction metamorphic): 33% efficiency
+used on Mars helicopter
 
 
 
-- will measure electrical current in today’s metrology lab 
-  - what sensor should we pick? 
-  - what current ranges should we measure?
-  - in the *next* lab we will measure power output from our solar arrays—want to measure that much current
-- first lab: pick the right current sensor for the second lab
+IV curve
 
-### digital to analog conversion (DAC)
+solar cells/panels have a curve like this
 
-- implied
-- usually care about recreating the analog data
+![](./sources/iv_curve.png)
 
 
 
-## microcontrollers
+### battery
 
-In this course we will use the Arduino MKR Zero microcontroller. 
+$$
+Cap = \frac{E_{ECL}}{DOD}
+$$
 
-> A microcontroller unit (MCU) contains a CPU, memory, and input/output  peripherals on a single integrated circuit (IC) chip and works as a  standalone small computer. This allows for a reduction in power  consumption, more compact designs, and cost savings. Additionally,  microcontrollers can provide functional safety and security for embedded systems.
+Capacity: Energy (Joules)
 
--[Infineon](https://www.infineon.com/cms/en/product/microcontroller/)
+Joule = Watt second
 
-The computers you usually think of (including phones), use microprocessors, which are more complex than microcontrollers. Microcontrollers usually do not run an operating system and instead directly run their code. Most operating systems are not real-time operating systems, which means there is no guarantee of when code will run. It is easy to create deterministic timing with a microcontroller. 
+commonly use Watt hours
 
-
-
-| Microprocessor                                 | Microcontroller                                          |
-| ---------------------------------------------- | -------------------------------------------------------- |
-| Computer system (incl phones)                  | embedded system (washing machine, MP3 player, etc.)      |
-| memory and I/O components connected externally | processor along with internal memory and I/O components. |
-| \$10–\$10k                                     | \$0.10–\$100         
-|                                                | ridiculously low power                                   |
-| IC -> OS -> code                               | IC -> code<br />(no OS)                                  |
-
-Most microcontrollers contain single-string processors, which mean they can only perform one task at a time. They are much faster than humans though, so by switching between tasks rapidly, they can give the appearance of multitasking. Even desktops/laptops/phones do this. As I write this, I currently have 12 programs open on my laptop, which has a 4-core Intel processor with hyperthreading. However, Windows reports that I have 769 processes running. 
+battery manufacturers use Amp hours
 
 
 
-FalconSAT runs a full Linux-based flight computer, but 331X’s FlatSAT is simple enough to run on a microcontroller. 
+P = IV
 
-FlatSAT runs on an Arduino MKR Zero microcontroller. 
-(Actually, it’s a development board built around the SAMD21 Cortex®-M0+ microcontroller.)
 
+
+depth of discharge: use less of battery’s capacity to prolong lifetime (cycle count)
+
+
+
+![](./sources/dod.png)
+
+
+
+Battery: array of cells
+
+(AA is not a battery, 9V is)
+
+
+
+Current standard
+
+18650-size lithium ion cell
+
+18 mm x 650 mm
+
+![12895-01_1](./sources/18650.jpg)
