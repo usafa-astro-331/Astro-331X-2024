@@ -245,6 +245,8 @@ Pbol=S $\eta$ A Id cos$\theta$
 - $I_d$ inherent degradation from manufacturing defects, wiring, soldering, etc
 - $\theta$ angle between sun and cell
 
+
+
 Peol = Pbol(1-degradataion)^life
 
 - degradation: 2-5%/year
@@ -306,3 +308,4 @@ Current standard
 18 mm x 650 mm
 
 ![12895-01_1](./sources/18650.jpg)
+
