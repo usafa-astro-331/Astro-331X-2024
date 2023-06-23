@@ -26,7 +26,7 @@
   static float throttlePWM{0.0f};
 
   // Create an Encoder object name Encoder, using digital pins 0 & 1 (interrupt pins on MKR Zero)
-  Encoders Encoder(0,1);  
+  Encoders Encoder(6,A2);  
 
   unsigned long lastMilli = 0;
   long currentEncoderCount = 0;
@@ -109,7 +109,7 @@ void setup() {
    dataFile = SD.open("attitude.csv", FILE_WRITE);
               // if the file is available, write to it:
               if (dataFile) {
-                dataFile.println("start of data");
+                dataFile.println("time (ms), gyrz (dps), magx (uT), magy (uT), wheel (RPM)");
                 dataFile.close();
 
               }
