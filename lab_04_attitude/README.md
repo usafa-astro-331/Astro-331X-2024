@@ -138,7 +138,7 @@ The motor has a 6-wire connector with 2 wires each for motor power, speed encode
 | motor driver OUT1 | red                 | motor power      |
 | motor driver OUT2 | black               | motor power      |
 | ground            | green               | encoder ground   |
-| 5V                | blue                | encoder power    |
+| 3.3V              | blue                | encoder power    |
 | Arduino A2        | yellow              | encoder output A |
 | Arduino D6        | white               | encoder output B |
 
