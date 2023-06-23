@@ -1,11 +1,13 @@
 // ----- ICM 20948 IMU
-  #include <ICM_20948.h>
-  #define USE_SPI      
+  #include <ICM_20948.h>// Click here to get the library: http://librarymanager/All#SparkFun_ICM_20948_IMU
 
   #define SERIAL_PORT Serial
-  #define SPI_PORT SPI // Your desired SPI port.       Used only when "USE_SPI" is defined
-  #define CS_PIN 6     // Which pin you connect CS to. Used only when "USE_SPI" is defined
-  ICM_20948_SPI myICM; // If using SPI create an ICM_20948_SPI object
+  #define WIRE_PORT Wire // Your desired Wire port.      Used when "USE_SPI" is not defined
+  // The value of the last bit of the I2C address.
+  // On the SparkFun 9DoF IMU breakout the default is 1, and when the ADR jumper is closed the value becomes 0
+  #define AD0_VAL 1
+
+  ICM_20948_I2C myICM; 
 
 
 // ----- TB9051FTG Motor Carrier
@@ -53,13 +55,14 @@ void setup() {
 //  };
 
 // ----- ICM 20948 IMU
-  SPI_PORT.begin();
+  WIRE_PORT.begin();
+  WIRE_PORT.setClock(400000);
 
    bool initialized = false;
      while (!initialized)
   {
 
-    myICM.begin(CS_PIN, SPI_PORT);
+    myICM.begin(WIRE_PORT, AD0_VAL);
 
 
     SERIAL_PORT.print(F("Initialization of the sensor returned: "));
@@ -234,7 +237,7 @@ String printFormattedFloat(float val, uint8_t leading, uint8_t decimals)
   return write_line;
 } //end printformattedfloat()
 
-String printScaledAGMT(ICM_20948_SPI *sensor){
+String printScaledAGMT(ICM_20948_I2C *sensor){
   // SERIAL_PORT.print("Gyr (DPS) [ ");
   String write_line = "";
   write_line += printFormattedFloat(sensor->gyrZ(), 5, 2);
