@@ -1,0 +1,37 @@
+Lab #,#/flatsat,Part Number,Description, Cost/ea ,V(in),Comments,Link
+x equipment,,9129B,power supply,$845 ,,triple output programmable DC power supply,https://www.digikey.com/en/products/detail/b&k-precision/9129B/5519444
+x equipment,,MC6C,li-ion charger,17.99,,6 bay li-ion battery charger,https://www.18650batterystore.com/collections/18650-battery-charger/products/xtar-mc6c
+x equipment,,3782-36-02,test leads,17.59,,banana to grabber test leads,https://www.digikey.com/en/products/detail/pomona-electronics/3782-36-02/736657
+x equipment,,,soldering iron,,,,
+x equipment,,,solder,,,,
+x equipment,,,screwdriver,,,#1 phillips,
+x equipment,,,side cutters,,,small wire cutters for removing solder leads,
+x equipment,,,mini USB cable,,,,
+x equipment,,,micro USB cable,,,,
+x equipment,3,prt-00116,straight headers,1.75,,https://www.sparkfun.com/products/116,
+0 metrology,1,BBD-K6,breadboard assembly,21.95,,2x size solderless breadboard assembly,https://protosupplies.com/product/breadboard-assembly-1560-pro-series/
+0 metrology,0.2,COM-10969,resistor kit,8.95,,sparkfun 1/4 W resistor kit,https://www.digikey.com/en/products/detail/sparkfun-electronics/COM-10969/14671649?s=N4IgTCBcDaIAQGEDyBZAtARgAwE4BsOIAugL5A
+0 metrology,1,MKR Zero,Microcontroller,30.3,5V,Main C&DH for FlatSat -- buy w/ headers!,https://www.digikey.com/en/products/detail/arduino/ABX00012/6829065?s=N4IgTCBcDaILYGsBOACAXgUyQexAXQF8g
+0 metrology,1,SEN-14544,current sensor,17.5,,SparkFun Current Sensor Breakout - ACS723 (Low Current,https://www.digikey.com/en/products/detail/sparkfun-electronics/SEN-14544/9452026?s=N4IgTCBcDaIMoFEByBaAjAFgKwYyAugL5A
+0 metrology,1,TW-E012-000,jumper wire kit,6.99,,140 pieces,https://www.digikey.com/en/products/detail/twin-industries/TW-E012-000/643115
+0 metrology,1,904,current sensor,9.95,,INA219 High Side DC Current Sensor Breakout,https://www.adafruit.com/product/904
+1 solar,1,AMX3d AMX,Solar Cells (4-pack),12.56,5V/30 mA,Price is for four cells,https://www.amazon.com/AMX3d-53X30mm-Panels-Wires-Projects/dp/B06XTS9SQ1
+1 solar,1,181,lcd,9.95,,character LCD 16x2 + extras,https://www.adafruit.com/product/181
+1 solar,1,356,potentiometer,1.25,,10K breadboard trim potentiometer,
+1 solar,1,112990066,microsd card,7,,32GB MicroSD card,https://www.digikey.com/en/products/detail/seeed-technology-co-ltd/112990066/10290294
+1 solar,1,PCB board,Protoboard (4-pack),12.99,--,Backing for solar panel,https://www.amazon.com/Double-Sided-Protoboard-Prototyping-9X15CM/dp/B07HFCDFWT/ref=sr_1_6?crid=1SQXE35XR6H0M&keywords=LYM+Double+Sided+Protoboard+Prototyping+P&qid=1673980148&sprefix=lym+double+sided+protoboard+prototyping+p%2Caps%2C177&sr=8-6
+1 solar,1,PRT-13268,protoboard,8.95,,,https://www.digikey.com/en/products/detail/sparkfun-electronics/PRT-13268/5623212?s=N4IgTCBcDaIAoCUAqBaAjAZjANgBwgF0BfIA
+2 camera,1,OV2640 2MP,ArduCam Mini Module,25.99,5,Camera,https://www.amazon.com/Arducam-Module-Megapixels-Arduino-Mega2560/dp/B012UXNDOY/ref=asc_df_B012UXNDOY/?tag=hyprod-20&linkCode=df0&hvadid=309807187084&hvpos=&hvnetw=g&hvrand=8524226097810707732&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9029028&hvtargid=pla-570327153549&psc=1
+3 comm,2,WRL15130,Xbee 3 module RF-SMA antenna,21.5,5,FlatSat Transceivers,https://www.sparkfun.com/products/15130
+3 comm,1,WRL 11812,Xbee explorer USB,27.95,5,arduino interface ,https://www.sparkfun.com/products/11812
+3 comm,2,W1038,rubber ducky antenna,3.58,,Omni directional antennas for both FlatSat & GS,https://www.digikey.com/en/products/detail/pulselarsen-antennas/W1038/1619691
+3 comm,1,WRL-11697,Xbee dongle,27.95,,laptop interface,https://www.sparkfun.com/products/11697
+3 comm,1,COM-12062,LED assortment,3.95,,,https://www.sparkfun.com/products/12062
+4 attitude,1,ICM-20948,9DoF IMU,18.5,5V,gyroscope/accelerometer/magnetometer,https://www.sparkfun.com/products/15335
+4 attitude,1,4758,DC brushed motor w/ encoder,47.79,12V,Reaction wheel motor w/ encoder to read speed,https://www.pololu.com/product/4758
+4 attitude,1,2997,DC motor controller,10.99,5V,DC motor controller to command reaction wheel,https://www.pololu.com/product/2997
+4 attitude,0.125,360-H02 extruded,"4"" diameter brass rod",600.05,,Brass to machine reaction wheels out of,https://www.onlinemetals.com/en/buy/brass/4-brass-round-bar-360-h02-extruded/pid/1292
+4 attitude,3,,18650 battery,4.5,,epoch 18650 2.6Ah protected battery,https://www.18650batterystore.com/collections/18650-batteries/products/epoch-18650-2600mah-8a-protected-button-top-battery
+4 attitude,1,1385,5V BEC power supply,7.98,,UBEC DC/DC Step-Down (Buck) Converter - 5V @ 3A output,https://www.adafruit.com/product/1385
+4 attitude,1,106990288,3S battery holder,0.6,,3-cell 18650 battery holder,https://www.digikey.com/en/products/detail/seeed-technology-co-ltd/106990288/10451902
+4 attitude,0.04,222-413/K194-4045,Wago splice,21.83,,(box of 50) terminal butt splice,https://www.digikey.com/en/products/detail/wago-corporation/222-413-K194-4045/13549312
