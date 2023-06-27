@@ -106,3 +106,8 @@ However, as of 2023, it is also easy to download for free. If you create a (free
 
 <img src="../sources/fritzing/331X_bb.svg" alt="breadboard"  />
 
+To create diagrams to put in your instructions:
+
+- export as pdf
+- convert to svg
+- add svg (using relative path) to markdown file
