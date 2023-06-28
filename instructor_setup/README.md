@@ -12,9 +12,21 @@ You will need this software to run Astro 331. Most software can be installed fro
 - Markdown software
   - my favorite is typora* (https://typora.io/), but it’s not free
   - typedown (`winget install typedown`) is free and good
-- git (`winget install git.git`) version control and distribution of course material to lab/student computers
-  - interfaces with github.com (https://github.com/usafa-astro-331/Astro-331X-2023)
-- Tortoisegit (`winget install Tortoisegit`) graphical interface for git—integrates with Windows’ File Explorer
+- version control
+  - git (`winget install git.git`) version control and distribution of course material to lab/student computers
+    - interfaces with github.com (https://github.com/usafa-astro-331/Astro-331X-2023)
+
+  - Tortoisegit (`winget install Tortoisegit`) graphical interface for git—integrates with Windows’ File Explorer
+  - You may also want a robust git GUI. My favorite is Sourcetree* (https://sourcetreeapp.com/?v=win). It’s free, but requires an account from atlassian/bitbucket to activate. 
+
+- Arduino IDE (`winget install ArduinoSA.IDE.stable`)
+  - you will sync Arduino libraries using the command line tool `arduino-cli`. This program is located in the course repository, and the required commands are scripted as `update_arduino.bat` and `install_libraries.bat`. 
+- bash (linux command line)- execute a couple of shell scripts
+  - to get a bash terminal on windows, install ubuntu from the windows store. You can do this with : `winget install 9PDXGNCFSCZV`
+
+- onshape (browser-based) CAD software—free academic license available
+- ultimaker cura* (https://ultimaker.com/software/ultimaker-cura/#links) slicer software to convert 3D parts into a printer toolpath
+
 
 ## documentation
 
@@ -27,6 +39,21 @@ Instructions for each lab are found in that folder’s `README.md`. Github autom
 
 
 Images can be added to the markdown file using relative paths, and then they will display locally and online at github. 
+
+## file types
+
+Text-based files work better in version control repositories than binary files. 
+
+For files that will never change (datasheets), there is no problem storing binary files such as pdfs. For files that will change regularly (lab instructions), use an uncompressed text-based format. 
+
+|                                           | good  | medium | bad    |
+| ----------------------------------------- | ----- | ------ | ------ |
+| documentation                             | *.md  | *.rtf  | *.docx |
+| matlab code                               | *.m   | *.mlx  |        |
+| data, lists                               | *.csv |        | *.xlsx |
+| vector images                             | *.svg |        | *.pdf  |
+| single-version docs <br />e.g. datasheets | *.pdf |        |        |
+| fritzing diagrams                         | *.fz  |        | *.fzz  |
 
 
 
@@ -111,3 +138,92 @@ To create diagrams to put in your instructions:
 - export as pdf
 - convert to svg
 - add svg (using relative path) to markdown file
+
+## git, Tortoisegit, github
+
+You will use git for version control and distribution of course material. Git is a command line program, so you may prefer to use Tortoisegit, which provides integration with Windows’ File Explorer. Finally, you will use github as the remote repository to distribute course material. 
+
+Interacting with git/github will look just like working with files and folders o n you PC, but with a few added steps. 
+
+Each instance of git material is called a repository. On github, a repository looks like a website. On your PC, a repository looks like any other folder. 
+
+I use github as the master remote repository. Everybody will sync to that one.
+
+### setup
+
+- If creating a new repository:
+  - Create a new repository on github.com. For this course, I’ve been creating them under the organization https://github.com/usafa-astro-331
+- copy the repository’s URL: https://github.com/usafa-astro-331/Astro-331X-2023
+- go to the location on your PC where you want to place the repository (i.e. folder), for example, My Documents
+- right click -> git clone -> paste URL -> OK
+
+### use
+
+When you start work for the day, you should pull from github in case someone else made changes. 
+
+- right click -> git sync -> pull
+
+
+
+Here’s the overview of your workflow as you work with a git repository. 
+
+- **work**
+- **save** file
+- **add** new or changed files to git’s staging area
+  - in Tortoisegit this is just checking the box next to a file in the commit dialog
+- **commit** added files to your local repository
+- **push** your changes to the remote repository (github) 
+
+It looks complicated, but 
+
+1) it’s less complicated than it seems
+2) it will be completely natural in 2-3 days
+3) it *vastly* simplifies course material distribution
+
+
+
+#### work & save
+
+As you work, create and save files just as you always have. Don’t create new names for new versions of a file—git stores all of the past versions that were committed, so just overwrite old files as necessary.  
+
+A file (or new version of a file) doesn’t become a version of record until you commit it to the git repository. Ensure that your code works/compiles before you commit it. 
+
+#### add & commit
+
+When you’re done working on a file (or files), or when you just want to record the current state of the project, commit your changes to the local repository. 
+
+Git will require a commit message for each commit. This can be as simple as a single typed space, but you usually want to provide a sentence describing the changes you’ve made. 
+
+Git creates a unique label for each commit—a number that uniquely identifies that commit within a repository. The last one for this repository was `c9199e9`. You can use this as a version number if you need to point someone to a specific version of your project. 
+
+#### push
+
+Push your changes to the remote repository. 
+
+Occasionally, your push will fail. Usually this is because somebody else made changes that your local repository doesn’t yet know about. To fix this, pull changes from the remote repository, and then try again.
+
+Currently (2023) course repositories are public. The public (and students) only have read access. 
+
+With the number of people who might be making changes (1–2 instructors), the chance of conflicts is small. Even if we’re working on the same file, we’re probably not changing the same parts, and git is smart enough to merge most changes automatically. 
+
+Also, git’s error messages are usually explicit and helpful. If you don’t immediately recognize the problem, the answer is usually a quick search away. 
+
+### student/lab computers
+
+Before the first lab, I clone the course repository onto each lab computer (same setup instructions as above). 
+
+Before each lab, I have students follow instructions on the binder cover page to sync (pull) changes from the remote repository. 
+
+## Arduino IDE
+
+It’s an IDE. You’ll figure out how to use it. However, this particular IDE has a few limitations that caught me by surprise. 
+
+- The file name of a sketch (`*.ino`) must exactly match the name of the folder it’s stored in. This means you can’t store two sketches in the same folder. 
+- The file name (and therefore also the folder name) can’t contain spaces. Older versions of Arduino (before 2.0) *did* allow spaces, but then all of those sketches stop compiling when you upgrade to 2.0. 
+- You can’t `#include` files from outside the current folder. Exception: you *can* include libraries installed in your computer’s Arduino library folder. 
+
+## part lists
+
+Each lab has a parts list saved as a csv file. The list for each lab assumes that you already have the parts for the previous lab—a lab may include components that aren’t explicitly listed in that lab’s `partsXX.csv`.
+
+To create or update the consolidated part list for the course, run `create_part_list.sh`. The output is `parts.csv` in the repository root (the main folder). 
