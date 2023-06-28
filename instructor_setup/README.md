@@ -222,8 +222,8 @@ It’s an IDE. You’ll figure out how to use it. However, this particular IDE h
 - The file name (and therefore also the folder name) can’t contain spaces. Older versions of Arduino (before 2.0) *did* allow spaces, but then all of those sketches stop compiling when you upgrade to 2.0. 
 - You can’t `#include` files from outside the current folder. Exception: you *can* include libraries installed in your computer’s Arduino library folder. 
 
-## part lists
+## component list
 
-Each lab has a parts list saved as a csv file. The list for each lab assumes that you already have the parts for the previous lab—a lab may include components that aren’t explicitly listed in that lab’s `partsXX.csv`.
+Each lab has a parts list saved as a csv file. The list for each lab assumes that you already have the parts for the previous lab—a lab may include components that aren’t explicitly listed in that lab’s `components.csv`.
 
-To create or update the consolidated part list for the course, run `create_part_list.sh`. The output is `parts.csv` in the repository root (the main folder). 
+To create or update the consolidated part list for the course, run `create_part_list.sh`. The output is `components.csv` in the repository root (the main folder). 
