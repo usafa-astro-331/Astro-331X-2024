@@ -20,11 +20,12 @@ You will need this software to run Astro 331. Most software can be installed fro
   - You may also want a robust git GUI. My favorite is Sourcetree* (https://sourcetreeapp.com/?v=win). It’s free, but requires an account from atlassian/bitbucket to activate. 
 
 - Arduino IDE (`winget install ArduinoSA.IDE.stable`)
-  - you will sync Arduino libraries using the command line tool `arduino-cli`. This program is located in the course repository, and the required commands are scripted as `update_arduino.bat` and `install_libraries.bat`. 
-- bash (linux command line)- execute a couple of shell scripts
-  - to get a bash terminal on windows, install ubuntu from the windows store. You can do this with : `winget install 9PDXGNCFSCZV`
+- arduino-cli (`winget install arduinosa.cli1) a scriptable command line tool to manage arduino boards and libraries
+  - the commands required to update arduino are scripted as `computer_environment/update_arduino.bat` and in each lab’s folder as `install_libraries.bat`. 
+- bash (linux command line)—execute some shell scripts
+  - to get a bash terminal on windows, install ubuntu from the windows store. You can do this from the windows command line: `winget install 9PDXGNCFSCZV`
 
-- onshape (browser-based) CAD software—free academic license available
+- onshape (browser-based: https://www.onshape.com/en/) CAD software—good for collaboration; free academic license available
 - ultimaker cura* (https://ultimaker.com/software/ultimaker-cura/#links) slicer software to convert 3D parts into a printer toolpath
 
 
@@ -138,6 +139,8 @@ To create diagrams to put in your instructions:
 - export as pdf
 - convert to svg
 - add svg (using relative path) to markdown file
+
+The current course diagram is found at `sources/fritzing/331X.fz`.
 
 ## git, Tortoisegit, github
 
