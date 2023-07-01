@@ -39,18 +39,19 @@ This step is not necessary if you just cloned the course repository.
 
 
 
-## Install editors
+## Install tools
 
 Go to the `computer_environment` folder. 
 
-- Verify the contents of `install_editors.bat`. Run it to install editors
+- Verify the contents of `install_tools.bat`. Run it to install editors
 
+  - **Arduino IDE**
+  - **arduino-cli** a scriptable command line tool for managing arduino boards and libraries
   - **typedown**: a markdown editor/viewer that you will use to view lab instructions
-  
-  
+
+
     - **notepad++**: a useful text editor
-    - **Arduino IDE**
-  
+
 - Verify and run `update_arduino.bat` which updates the Arduino IDE/environment using the `arduino-cli` tool
 
   - updates Arduino environment
