@@ -2,7 +2,7 @@
 
 ## admin
 
-wear ESD bracelets while handling electronics!
+mention ESD bracelets
 
 
 
@@ -21,21 +21,14 @@ wear ESD bracelets while handling electronics!
 - complete lab
 - analyze/document
 
+
+
 ### today
 
 - electrical lesson
-  - complete prelab predictions
-
+- complete prelab predictions
 - electrical lab
   - analyze/document
-
-- cameras
-  - complete prelab predictions
-
-
-
-
-- (maybe) begin camera lab
 
 
 
@@ -60,12 +53,6 @@ measurement
 
 
 
-DC/AC
-
-frequency
-
-
-
 difference: electricity needs a return path
 
 We call that return path ground
@@ -75,8 +62,26 @@ We call that return path ground
 *circuit*: the whole loop 
 
 -  a circuit breaker breaks the circuit and stops the flow of electricity
-- each breaker in a building controls an entire loop
-- Each NM-B cable contains an entire loop—3(!) wires
+-  each breaker in a building controls an entire loop
+-  Each NM-B cable contains an entire loop—3(!) wires
+
+
+
+
+
+DC/AC
+
+![1_31](C:\Users\Jordan.Firth\OneDrive - afacademy.af.edu\Documents\Astro-331X-2023\lessons\2 electrical system\sources\README\1_31.png)
+
+frequency
+
+
+
+power supply in Singapore
+
+In Singapore the power plug sockets are of type G. The standard voltage is 230 V and the frequency is **50 Hz**.
+
+https://repairs.sg/guide/electrical-wire-colour-code-singapore/
 
 
 
@@ -87,7 +92,7 @@ Confusion: Ground means something different in U.S. building wiring—this termi
 Electronics: 
 ground = electrical return path 
 always carries full current of the circuit
-ground can be black, white, green, brown, bare—anything but red
+ground can be black, white, green, blue, brown, bare—anything but red
 
 
 
@@ -111,6 +116,20 @@ Other terms:
 - *closed/on* a connected circuit with current flowing through it (typically flowing through a load)
 - *short* a closed circuit connected through essentially no load—usually inadvertent (but today we will measure the solar array’s short-circuit current)
 - *open/broken/off* a circuit with the load removed and V+ disconnected from ground/V-
+
+
+
+AC conversion
+
+transformers
+
+![1024px-Transformer3d_col3.svg](C:\Users\Jordan.Firth\OneDrive - afacademy.af.edu\Documents\Astro-331X-2023\lessons\2 electrical system\sources\README\1024px-Transformer3d_col3.svg.png)
+
+![Philips_N4422_-_power_supply_transformer-2098](C:\Users\Jordan.Firth\OneDrive - afacademy.af.edu\Documents\Astro-331X-2023\lessons\2 electrical system\sources\README\Philips_N4422_-_power_supply_transformer-2098.jpg)
+
+
+
+
 
 ### Ohm’s law
 
@@ -301,11 +320,13 @@ Battery: array of cells
 
 
 
-Current standard
+de factor standard
 
 18650-size lithium ion cell
 
 18 mm x 650 mm
+
+this class: NCR18650B (see datasheet)
 
 ![12895-01_1](./sources/18650.jpg)
 
