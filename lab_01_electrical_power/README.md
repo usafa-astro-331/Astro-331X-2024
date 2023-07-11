@@ -67,7 +67,7 @@ Read `lab 1 analysis.pdf` and complete pre-lab activities.
 
 
 
-![voltage divider](C:\Users\Jordan.Firth\OneDrive - afacademy.af.edu\Documents\Astro-331X-2023\lab_01_electrical_power\sources\README\331X.svg)
+![wiring diagram](../sources/fritzing/331X.svg)
 
 
 
