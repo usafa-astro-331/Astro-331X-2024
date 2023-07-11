@@ -2,7 +2,15 @@
 
 ## admin
 
+talk about cubesats
+
+
+
 mention ESD bracelets
+
+
+
+troubleshooting
 
 
 
@@ -71,7 +79,7 @@ We call that return path ground
 
 DC/AC
 
-![1_31](C:\Users\Jordan.Firth\OneDrive - afacademy.af.edu\Documents\Astro-331X-2023\lessons\2 electrical system\sources\README\1_31.png)
+![1_31](sources/README/1_31.png)
 
 frequency
 
@@ -123,9 +131,9 @@ AC conversion
 
 transformers
 
-![1024px-Transformer3d_col3.svg](C:\Users\Jordan.Firth\OneDrive - afacademy.af.edu\Documents\Astro-331X-2023\lessons\2 electrical system\sources\README\1024px-Transformer3d_col3.svg.png)
+![1024px-Transformer3d_col3.svg](sources/README/1024px-Transformer3d_col3.svg.png)
 
-![Philips_N4422_-_power_supply_transformer-2098](C:\Users\Jordan.Firth\OneDrive - afacademy.af.edu\Documents\Astro-331X-2023\lessons\2 electrical system\sources\README\Philips_N4422_-_power_supply_transformer-2098.jpg)
+![Philips_N4422_-_power_supply_transformer-2098](sources/README/Philips_N4422_-_power_supply_transformer-2098.jpg)
 
 
 
