@@ -67,6 +67,10 @@ Read `lab 1 analysis.pdf` and complete pre-lab activities.
 
 
 
+![voltage divider](C:\Users\Jordan.Firth\OneDrive - afacademy.af.edu\Documents\Astro-331X-2023\lab_01_electrical_power\sources\README\331X.svg)
+
+
+
 ### prepare microSD card
 
 The Arduino MKR Zero has a microSD card slot. You will use this card to store data in various labs. If this is your first lab with an SD card, prepare the card. 
