@@ -2,14 +2,6 @@
 
 
 
-### computer login
-
-username: .\Astrolab
-
-password: dfas1234DFAS!@#$
-
-
-
 ### lab folder location
 
 Documents\Astro-331X-2023\
@@ -19,6 +11,10 @@ Documents\Astro-331X-2023\
 ### github repository
 
 https://github.com/usafa-astro-331/Astro-331X-2023
+
+
+
+(username and password not required)
 
 username: usafa-astro-331-student
 
