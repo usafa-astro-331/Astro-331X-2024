@@ -7,10 +7,10 @@
 // It can test OV2640 functions
 // This program requires the ArduCAM V4.0.0 (or later) library and ArduCAM_Mini_5MP_Plus
 // and use Arduino IDE 1.6.8 compiler or above
+#include "./memorysaver.h"
 #include <Wire.h>
 #include <ArduCAM.h>
 #include <SPI.h>
-#include <memorysaver.h>
 //This demo can only work on OV2640_MINI_2MP platform.
 #if !(defined OV2640_MINI_2MP)
   #error Please select the hardware platform and camera module in the ../libraries/ArduCAM/memorysaver.h file
