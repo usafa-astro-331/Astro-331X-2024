@@ -100,11 +100,12 @@ int PAN_ID = 2006;
 
 - click open
 
-- type the following commands 
+- type the following commands (press enter, but do not type other words in parentheses)
 
 ```
 (wait 1 second)
-+++ (enter)
++++ (do not type enter)
+(wait for XBee to return "OK")
 ATID (your channel number) (enter)
 ATID (enter) (verify correct channel) 
 ATDH 0 (enter)
